@@ -53,7 +53,7 @@ const EditProductForm = ({ productToEdit, onProductUpdated, onCancelEdit }) => {
         imageId: data.imageId || null,
       };
 
-      const response = await axios.put(`http://localhost:3002/api/products/${productToEdit.product_id}`, productData);
+      const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/products/${productToEdit.product_id}`, productData);
       
       if (response.status === 200) {
         onProductUpdated(); // This will refresh list and switch view in App.jsx

@@ -15,7 +15,7 @@ function App() {
   const fetchProducts = async () => {
     setLoading(true); // Set loading true when re-fetching
     try {
-      const response = await axios.get('http://localhost:3002/api/products');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products`);
       setProducts(response.data);
       setError(null);
     } catch (err) {
@@ -41,7 +41,7 @@ function App() {
     // Ask for confirmation before deleting
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const response = await axios.delete(`http://localhost:3002/api/products/${productId}`);
+        const response = await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/products/${productId}`);
         if (response.status === 200) { // Or check for specific success message if backend sends one
           fetchProducts(); // Refresh the product list
           // Optionally show a success notification

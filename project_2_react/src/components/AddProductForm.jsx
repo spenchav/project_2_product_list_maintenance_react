@@ -30,7 +30,7 @@ const AddProductForm = ({ onProductAdded }) => {
         imageId: data.imageId || null,
       };
 
-      const response = await axios.post('http://localhost:3002/api/products', productData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/products`, productData);
       
       if (response.status === 201) {
         onProductAdded();

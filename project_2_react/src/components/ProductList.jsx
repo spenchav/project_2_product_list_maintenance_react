@@ -29,7 +29,7 @@ const ProductList = ({ products, loading, error, onEditProduct, onDeleteProduct 
             <p>Description: {product.description}</p>
             {product.image_url && (
               <img 
-                src={product.image_url.startsWith('http') ? product.image_url : `http://localhost:3002${product.image_url}`}
+                src={product.image_url.startsWith('http') ? product.image_url : `${import.meta.env.VITE_API_BASE_URL}${product.image_url}`}
                 alt={product.prod_name} 
                 className={styles.productImage} 
               />

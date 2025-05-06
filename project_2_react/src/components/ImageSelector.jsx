@@ -11,7 +11,7 @@ const ImageSelector = ({ selectedImageId, onImageSelect, label = "Select Product
     const fetchAvailableImages = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3002/api/available-images');
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/available-images`);
         setAvailableImages(response.data);
         setError(null);
       } catch (err) {
@@ -49,7 +49,7 @@ const ImageSelector = ({ selectedImageId, onImageSelect, label = "Select Product
             title={image.name_segment}
           >
             <img 
-              src={`http://localhost:3002${image.preview_path}`} 
+              src={`${import.meta.env.VITE_API_BASE_URL}${image.preview_path}`} 
               alt={image.name_segment} 
             />
             <div className={styles.imageName}>{image.name_segment}</div>
